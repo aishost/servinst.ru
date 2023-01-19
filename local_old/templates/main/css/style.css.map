@@ -1,1 +1,0 @@
-{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAEA,EACE,OAAA,EACA,QAAA,EACA,mBAAA,WAAA,WAAA,WAEF,KACE,WAAA,MACA,MAAA,KACA,SAAA,OACA,QAAA","file":"style.css","sourcesContent":["@import \"components/templates.scss\";\n\n*{\n  margin:0;\n  padding:0;\n  box-sizing:border-box;\n}\nbody{\n  min-height: 100vh;\n  width: 100%;\n  overflow: hidden;\n  display: block;\n}"]}
