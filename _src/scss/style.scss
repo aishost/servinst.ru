@@ -1,13 +1,57 @@
-@import "components/templates.scss";
-
+// @import "components/templates.scss";
+@import "../components/menu/style.scss";
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
+}
+#panel{
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  top: 0;
+  width: 100%;
 }
 body{
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
   display: block;
+  margin: 0;
+  padding: 0;
 }
+.cont{
+  padding-left: 24px;
+  padding-right: 24px;
+}
+// .menu-only{
+//   display: none;
+// }
+// Фон 1 блока
+.head {
+  background: url(../img/bg-fon.webp) no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+// Фон 1 блока КОНЕЦ
+// шапка
+.shapka{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+// шапка Конец
+// Логотип
+
+// Логотип Конец
+// Меню
+.menu{
+  margin-top: 20px;
+}
+.dropdown-menu{
+  display: none;
+}
+.mega-menu{
+  height: 50px;
+}
+// Меню Конец

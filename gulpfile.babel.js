@@ -31,12 +31,17 @@ const paths = {
         dest: 'www/local/templates/main/',
     },
     styles: {
-        src: '_src/scss/**/*.{scss, css, sass}',
-        dest: 'www/local/templates/main/css/'
+        src:  '_src/scss/**/*.{scss, css, sass}',
+        dest: 'www/local/templates/main/css/',
+        components: '_src/components/**/*.{scss, css, sass}'
     },
     scripts: {
         src: '_src/js/**/*.js',
         dest: 'www/local/templates/main/js/'
+    },
+    vue: {
+        src: '_src/components-vue/*.vue',
+        dest: 'www/local/templates/main/components-vue/'
     },
     documents: {
         src: ['_src/*.php', '_src/*.html'],
@@ -89,6 +94,10 @@ function copyFunc() {
     return gulp.src(paths.allFiles.src).pipe(gulp.dest(paths.allFiles.dest))
 }
 
+function VUE_FUNC() {
+    return gulp.src(paths.vue.src).pipe(gulp.dest(paths.vue.dest))
+}
+
 function deleteFunc() {
     return del([paths.allFiles.dest])
 }
@@ -124,7 +133,7 @@ function StyleFunc() {
             cascade: true
         }))
         .pipe(cleanCSS())
-        .pipe(sourcemaps.write('./'))
+        // .pipe(sourcemaps.write('./'))
         .pipe(size())
         .pipe(gulp.dest(paths.styles.dest))
         .pipe(browserSync.stream());
@@ -193,13 +202,15 @@ function HTMLFunc() {
 function watchFunc() {
     gulp.watch(paths.scripts.src, ScriptFunc);
     gulp.watch(paths.styles.src, StyleFunc);
+    gulp.watch(paths.styles.components, StyleFunc);
     gulp.watch(paths.imgs.src.jpg, jpgFunc);
     gulp.watch(paths.imgs.src.png, pngFunc);
     gulp.watch(paths.documents.src, HTMLFunc);
+    gulp.watch(paths.vue.src, VUE_FUNC);
     gulp.watch(paths.svg.src, svgFunc)
 }
 
-const defaultTask = gulp.series(deleteFunc, copyFunc, gulp.parallel(HTMLFunc ,fontFunc, ScriptFunc, StyleFunc, gulp.parallel(svgFunc, jpgFunc, pngFunc,), ), gulp.parallel(serverFunc, watchFunc,),);
+const defaultTask = gulp.series(deleteFunc, copyFunc, gulp.parallel(HTMLFunc ,VUE_FUNC ,fontFunc, ScriptFunc, StyleFunc, gulp.parallel(svgFunc, jpgFunc, pngFunc,), ), gulp.parallel(serverFunc, watchFunc,),);
 
 gulp.task('delete', deleteFunc)
 gulp.task('img', jpgFunc)
