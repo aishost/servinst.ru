@@ -46,6 +46,7 @@ const paths = {
     documents: {
         src: ['_src/*.php', '_src/*.html'],
         dest: 'www/local/templates/main/',
+        components: ['_src/components/*.php', '_src/components/*.html'],
     },
     imgs: {
         src: {
@@ -206,6 +207,7 @@ function watchFunc() {
     gulp.watch(paths.imgs.src.jpg, jpgFunc);
     gulp.watch(paths.imgs.src.png, pngFunc);
     gulp.watch(paths.documents.src, HTMLFunc);
+    gulp.watch(paths.documents.components, HTMLFunc);
     gulp.watch(paths.vue.src, VUE_FUNC);
     gulp.watch(paths.svg.src, svgFunc)
 }
