@@ -37,7 +37,8 @@ const paths = {
     },
     scripts: {
         src: '_src/js/**/*.js',
-        dest: 'www/local/templates/main/js/'
+        dest: 'www/local/templates/main/js/',
+	  components: '_src/components/**/*.js',
     },
     vue: {
         src: '_src/components-vue/*.vue',
@@ -46,7 +47,7 @@ const paths = {
     documents: {
         src: ['_src/*.php', '_src/*.html'],
         dest: 'www/local/templates/main/',
-        components: ['_src/components/*.php', '_src/components/*.html'],
+        components: ['_src/components/**/*.php', '_src/components/**/*.html'],
     },
     imgs: {
         src: {
@@ -202,6 +203,7 @@ function HTMLFunc() {
 
 function watchFunc() {
     gulp.watch(paths.scripts.src, ScriptFunc);
+    gulp.watch(paths.scripts.components, ScriptFunc);
     gulp.watch(paths.styles.src, StyleFunc);
     gulp.watch(paths.styles.components, StyleFunc);
     gulp.watch(paths.imgs.src.jpg, jpgFunc);

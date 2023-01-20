@@ -4,15 +4,93 @@
     border-radius: 3px;
 
 }
+.wrap_icon{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 21px 0;
+}
+.inline-search-show{
+    border: 0;
+    background: #fff;
+}
+.toright{
+    opacity: 0;
+}
 
-// Меню
 .menu{
     margin-top: 20px;
-  }
-  .dropdown-menu{
-    display: none;
   }
   .mega-menu{
     height: 60px;
   }
-  // Меню Конец
+.pull-right{
+    float: right;
+}
+// Меню
+.table-menu{
+    table{
+        width: 100%;
+        height: 60px;
+        padding: 0;
+        margin: 0;
+        tr{
+            height: 60px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            td{
+                position: relative;
+                width: 100%;
+                a{
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    color: #053750;
+                    height: 60px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                ul{
+                    display: none;
+                }
+            }
+            td:hover{
+                a{
+                    color: #0976AD;
+                }
+                ul{
+                    display: block;
+                    position: absolute;
+                    background: #fff;
+                    width: 100%;
+                    li{
+                        list-style: none;
+                        a{
+                            height: auto;
+                            padding: 15px;
+                            text-align: center;
+                            font-size: 12px;
+                        }
+                        ul{
+                            position: absolute;
+                            display: none;
+                        }
+                    }
+                    li:hover{
+                        background: rgb(237, 245, 249);
+                        ul{
+                            position: absolute;
+                            display: inline-block;
+                            margin-left: 0;
+                            width: 30%;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}

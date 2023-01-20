@@ -36,7 +36,7 @@ include $_SERVER["DOCUMENT_ROOT"] . SITE_TEMPLATE_PATH . "/.settings.php";
 					<div class="phone"></div>
 					<div class="zak_zvon"></div>
 					<div class="menu">
-						@@include('components/menu/view.html')ыыыы
+						@@include('components/menu/view.html')ввв
 					</div>
 				</div>
 			</div>
